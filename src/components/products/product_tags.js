@@ -14,7 +14,7 @@ const Product_Tags = ({ selectedTag, onSelectTag }) => {
   return (
     <div className="w-full shadow-md p-4 rounded-lg h-fit border border-gray-200 mt-12">
       <div className="flex justify-between items-center">
-        <p className="text-lg font-medium">Product Tags</p>
+        <p className="text-lg font-bold font-quicksand">Product Tags</p>
         {selectedTag && (
           <button
             onClick={() => onSelectTag(null)}

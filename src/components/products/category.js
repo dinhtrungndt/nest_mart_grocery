@@ -19,7 +19,7 @@ const Category = ({ selectedCategory, onSelectCategory }) => {
 
   return (
     <div className="w-full shadow-md p-4 rounded-lg h-fit border border-gray-200">
-      <p className="text-lg font-medium">Category</p>
+      <p className="text-lg font-bold font-quicksand">Category</p>
       <span className="block h-0.5 w-10 bg-primary mt-2 mb-4"></span>
       {categories.map((cat, index) => (
         <div key={index} className="flex items-center justify-between mb-4 cursor-pointer border-gray-300 p-2 rounded-lg group hover:bg-primary hover:text-white transition-colors" onClick={() => onSelectCategory(cat.category)}>

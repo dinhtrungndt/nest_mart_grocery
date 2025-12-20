@@ -28,7 +28,7 @@ const ProductHome = () => {
     <div className="p-6 px-24">
       {/* Product Category */}
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-medium">Popular Products</h1>
+        <h1 className="text-2xl font-bold font-quicksand">Popular Products</h1>
         <div className="flex space-x-6 text-sm font-medium">
           <p className={`hover:text-primary cursor-pointer transition-colors ${selectedCategory === 'All' ? 'text-primary' : ''}`} onClick={() => handleSelectCategory('All')}>All</p>
           <p className={`hover:text-primary cursor-pointer transition-colors ${selectedCategory === 'Baking material' ? 'text-primary' : ''}`} onClick={() => handleSelectCategory('Baking material')}>Baking material</p>
