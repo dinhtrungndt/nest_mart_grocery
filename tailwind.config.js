@@ -7,9 +7,15 @@ export default {
         primary: '#3BB77E',
         primaryDark: '#2A9D6F',
         primaryLight: '#5FD99F',
+        primaryButton: '#DEF9EC',
         secondary: '#FDC040',
         secondaryDark: '#F5A623',
         secondaryLight: '#FFD670',
+      },
+      fontFamily: {
+        quicksand: ['Quicksand', 'sans-serif'],
+        roboto: ['Roboto', 'sans-serif'],
+        sourceCode: ['Source Code Pro', 'monospace'],
       },
       keyframes: {
         marquee: {
