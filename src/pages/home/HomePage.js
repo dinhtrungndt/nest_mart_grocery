@@ -148,6 +148,7 @@ const HomePage = () => {
 
       {/* Products and Category */}
       <ProductHome />
+
     </div>
   );
 };

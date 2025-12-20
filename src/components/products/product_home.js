@@ -2,6 +2,7 @@ import { ShoppingCart } from 'lucide-react';
 import { useState } from 'react';
 import { DataProducts } from '../../stores/data/products';
 import Category from './category';
+import DealsOfTheDay from './DealsOfTheDay';
 import Product_Tags from './product_tags';
 
 const ProductHome = () => {
@@ -27,7 +28,7 @@ const ProductHome = () => {
   return (
     <div className="p-6 px-24">
       {/* Product Category */}
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex justify-between items-center my-4">
         <h1 className="text-2xl font-bold font-quicksand">Popular Products</h1>
         <div className="flex space-x-6 text-sm font-medium">
           <p className={`hover:text-primary cursor-pointer transition-colors ${selectedCategory === 'All' ? 'text-primary' : ''}`} onClick={() => handleSelectCategory('All')}>All</p>
@@ -92,6 +93,10 @@ const ProductHome = () => {
             selectedTag={selectedTag}
             onSelectTag={setSelectedTag}
           />
+        </div>
+        {/* Deals Of The Day */}
+        <div className="col-span-5">
+          <DealsOfTheDay />
         </div>
       </div>
     </div>
