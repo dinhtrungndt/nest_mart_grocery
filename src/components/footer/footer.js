@@ -3,8 +3,8 @@ import { IMAGES } from '../../constants/images/image';
 
 const Footer = () => {
   return (
-    <div className="py-8 grid grid-cols-7" >
-      <div className="space-y-2 col-span-2">
+    <div className="py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-8 md:gap-4 px-4 md:px-12 lg:px-0">
+      <div className="space-y-2 col-span-1 md:col-span-2">
         <img src={IMAGES.logo} alt="" className="w-32 cursor-pointer" />
         <p className="text-xs py-2">Awesome grocery store website template</p>
         <p className="text-xs flex items-start"><MapPinCheckInside size={14} className="mr-1 mt-0.5 shrink-0 text-primary" /><span>Address 5171 W Campbell Ave undefined <br /> Kent, Utah 53127 United States</span></p>

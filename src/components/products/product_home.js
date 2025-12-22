@@ -26,11 +26,11 @@ const ProductHome = () => {
   };
 
   return (
-    <div className="p-6 px-24">
+    <div className="p-4 md:p-6 lg:px-24">
       {/* Product Category */}
-      <div className="flex justify-between items-center my-4">
+      <div className="flex flex-col md:flex-row justify-between items-center my-4 gap-4">
         <h1 className="text-2xl font-bold font-quicksand">Popular Products</h1>
-        <div className="flex space-x-6 text-sm font-medium">
+        <div className="flex flex-wrap justify-center gap-2 md:space-x-6 text-sm font-medium">
           <p className={`hover:text-primary cursor-pointer transition-colors ${selectedCategory === 'All' ? 'text-primary' : ''}`} onClick={() => handleSelectCategory('All')}>All</p>
           <p className={`hover:text-primary cursor-pointer transition-colors ${selectedCategory === 'Baking material' ? 'text-primary' : ''}`} onClick={() => handleSelectCategory('Baking material')}>Baking material</p>
           <p className={`hover:text-primary cursor-pointer transition-colors ${selectedCategory === 'Fresh Fruits' ? 'text-primary' : ''}`} onClick={() => handleSelectCategory('Fresh Fruits')}>Fresh Fruits</p>
@@ -40,9 +40,9 @@ const ProductHome = () => {
         </div>
       </div>
       {/* Product and Category */}
-      <div className="grid grid-cols-6 gap-6">
+      <div className="flex flex-col lg:grid lg:grid-cols-6 gap-6">
         {/* Products */}
-        <div className="col-span-5 grid grid-cols-5 gap-6">
+        <div className="order-2 lg:order-none col-span-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
           {filteredProducts.slice(0, 15).map((product) => (
             <div key={product.id} className="relative border border-gray-200 h-fit rounded-2xl shadow-md hover:scale-105 cursor-pointer p-4 transition-transform group">
               <img src={product.image} alt={product.name} className="" />
@@ -84,7 +84,7 @@ const ProductHome = () => {
             </div>
           ))}
         </div>
-        <div>
+        <div className="order-1 lg:order-none w-full">
           <Category
             selectedCategory={selectedCategory}
             onSelectCategory={setSelectedCategory}
@@ -95,7 +95,7 @@ const ProductHome = () => {
           />
         </div>
         {/* Deals Of The Day */}
-        <div className="col-span-5">
+        <div className="order-3 lg:order-none col-span-5">
           <DealsOfTheDay />
         </div>
       </div>

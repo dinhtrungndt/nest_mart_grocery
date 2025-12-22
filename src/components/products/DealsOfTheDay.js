@@ -15,10 +15,10 @@ const DealsOfTheDay = () => {
       </div>
 
       {/* 4 columns */}
-      <div className="grid grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {
           DataDealsOfTheDay.slice(0, 4).map((item) => (
-            <div key={item.id} className="relative rounded-2xl cursor-pointer transition-transform hover:scale-105 ">
+            <div key={item.id} className="relative rounded-2xl cursor-pointer transition-transform hover:scale-105 mb-12">
               <img src={item.image} alt={item.title} />
               <div className="absolute -bottom-10 left-4 right-4 bg-white p-4 rounded-2xl space-y-2 shadow-md border border-gray-200">
                 <p className="text-sm text-black font-medium line-clamp-2">{item.title}</p>

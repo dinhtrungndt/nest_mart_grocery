@@ -173,7 +173,7 @@ const HomePage = () => {
       <ProductHome />
 
       {/* Shop Now */}
-      <div className="px-24 py-4 grid grid-cols-3 gap-4">
+      <div className="px-4 md:px-12 lg:px-24 py-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <div className="relative shadow-md rounded-xl">
           <img src={require('../../assets/image/products/shop_now_1.png')} alt="" className="w-full rounded-lg" />
           <div className="absolute top-8 left-8 space-y-4">
@@ -200,18 +200,18 @@ const HomePage = () => {
       </div>
 
       {/* Shop by Categories */}
-      <div className="px-24 py-4">
-        <div className=" flex items-center justify-between">
+      <div className="px-4 md:px-12 lg:px-24 py-4">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center">
             <p className="text-2xl font-bold font-quicksand">Shop by Categories</p>
-            <p className="text-primary text-xs ml-10 cursor-pointer hover:text-primaryDark hover:underline transition-colors">All Categories &gt;</p>
+            <p className="text-primary text-xs ml-4 md:ml-10 cursor-pointer hover:text-primaryDark hover:underline transition-colors">All Categories &gt;</p>
           </div>
           <div className="flex items-center space-x-2">
             <ArrowLeft className="bg-gray-200 p-1 rounded-full cursor-pointer hover:bg-gray-300 transition-colors" />
             <ArrowRight className="bg-gray-200 p-1 rounded-full cursor-pointer hover:bg-gray-300 transition-colors" />
           </div>
         </div>
-        <div className="flex items-center justify-between pt-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:flex lg:justify-between gap-4 pt-4">
           <div className="flex flex-col items-center bg-gray-100 p-4 rounded-lg space-y-1 hover:scale-105 transition-all cursor-pointer shadow-md">
             <img src={require("../../assets/image/shop_category/image_1.png")} alt="" className="w-16" />
             <p className="text-sm font-bold font-quicksand">Milks and Dairíes</p>
@@ -254,7 +254,7 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className="grid-cols-4 grid gap-4 pt-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
           {/* Top Selling */}
           <div>
             <p className="text-xl font-bold font-quicksand pb-4">Top Selling</p>
@@ -359,13 +359,13 @@ const HomePage = () => {
 
         {/* form section */}
         <div className="pt-4 relative">
-          <img src={require("../../assets/image/bg-nest-email.png")} alt="" className="w-full" />
-          <img src={require("../../assets/image/person-bg-nest.png")} alt="" className="absolute w-1/2 bottom-0 right-0 rounded-br-2xl" />
-          <div className="absolute top-1/4 left-24 space-y-2">
-            <p className="text-4xl font-bold font-quicksand line-clamp-2">Stay home & get your daily <br /> needs from our shop</p>
-            <p className="text-xl font-medium font-quicksand">Start Your Daily Shopping with <span className="text-primary">Nest Mart</span></p>
-            <div className="flex justify-center">
-              <div className="mt-6 border border-gray-300 rounded-full bg-white w-full focus:outline-none focus:ring-2 focus:ring-primary flex justify-between">
+          <img src={require("../../assets/image/bg-nest-email.png")} alt="" className="w-full h-64 md:h-auto object-cover rounded-2xl" />
+          <img src={require("../../assets/image/person-bg-nest.png")} alt="" className="absolute w-1/2 md:w-1/2 bottom-0 right-0 rounded-br-2xl hidden md:block" />
+          <div className="absolute top-1/2 left-4 md:left-24 transform -translate-y-1/2 md:transform-none md:top-1/4 space-y-2 w-full md:w-auto pr-4 md:pr-0">
+            <p className="text-2xl md:text-4xl font-bold font-quicksand line-clamp-2">Stay home & get your daily <br className="hidden md:block" /> needs from our shop</p>
+            <p className="text-lg md:text-xl font-medium font-quicksand">Start Your Daily Shopping with <span className="text-primary">Nest Mart</span></p>
+            <div className="flex justify-center md:justify-start">
+              <div className="mt-6 border border-gray-300 rounded-full bg-white w-full md:w-96 focus:outline-none focus:ring-2 focus:ring-primary flex justify-between">
                 <input
                   type="email"
                   placeholder="Your email address"
@@ -382,7 +382,7 @@ const HomePage = () => {
         </div>
 
         {/* icon section selling */}
-        <div className="flex items-center justify-between space-x-4 pt-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:flex lg:justify-between gap-4 pt-4">
           <div className="flex items-center space-x-2 bg-gray-100 px-6 py-2 rounded-md shadow-md cursor-pointer hover:scale-105 transition-all hover:shadow-lg">
             <img src={require("../../assets/image/icon_selling/best_prices_offers.png")} alt="" className="w-12" />
             <div className="space-y-1">

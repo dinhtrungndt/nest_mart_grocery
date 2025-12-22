@@ -4,7 +4,7 @@ const BottomFooter = () => {
   return (
     <div className="py-6">
       <span className="block h-0.5 w-full bg-primaryLight mb-6" />
-      <div className="flex items-center justify-around">
+      <div className="flex flex-col md:flex-row items-center justify-around gap-4 md:gap-0">
         <div className="col-span-2">
           <p className="text-xs text-gray-500">© 2025, Nest – DVN Technology</p>
           <p className="text-xs text-gray-500">All rights reserved</p>
@@ -23,7 +23,7 @@ const BottomFooter = () => {
             <p className="text-xs text-gray-500">24/7 Support Center</p>
           </div>
         </div>
-        <div className="flex flex-col items-end">
+        <div className="flex flex-col items-center md:items-end">
           <div className="flex items-center gap-2">
             <p className="text-xs font-medium">Follow Us</p>
             <Facebook size={24} className="cursor-pointer bg-primary rounded-full p-1 text-white" />
