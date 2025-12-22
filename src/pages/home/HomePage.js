@@ -1,5 +1,7 @@
 import { ArrowLeft, ArrowRight, CircleUserRound, Heart, RefreshCcw, ShoppingCart } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
+import BottomFooter from '../../components/footer/bottomFooter';
+import Footer from '../../components/footer/footer';
 import Navbar from '../../components/navbar/Navbar';
 import ProductHome from '../../components/products/product_home';
 import TopBar_Header from '../../components/topbar/topbar_header';
@@ -418,8 +420,11 @@ const HomePage = () => {
           </div>
         </div>
 
-
+        {/* footer */}
+        <Footer />
       </div>
+
+      <BottomFooter />
     </div>
   );
 };
