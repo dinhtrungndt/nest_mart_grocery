@@ -1,14 +1,35 @@
-import { ArrowRight, CircleUserRound, Heart, RefreshCcw, ShoppingCart } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { ArrowLeft, ArrowRight, CircleUserRound, Heart, RefreshCcw, ShoppingCart } from 'lucide-react';
+import { useEffect, useMemo, useState } from 'react';
 import Navbar from '../../components/navbar/Navbar';
 import ProductHome from '../../components/products/product_home';
 import TopBar_Header from '../../components/topbar/topbar_header';
 import { IMAGES } from '../../constants/images/image';
+import { DataProducts } from '../../stores/data/products';
 
 const HomePage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
+
+  const topSelling = useMemo(
+    () => DataProducts.sort((a, b) => b.selling - a.selling).slice(0, 3),
+    []
+  );
+
+  const trendingProducts = useMemo(
+    () => DataProducts.filter(p => p.isTrending).slice(0, 3),
+    []
+  );
+
+  const recentlyAdded = useMemo(
+    () => DataProducts.filter(p => p.isRecently).slice(0, 3),
+    []
+  );
+
+  const topRatedProducts = useMemo(
+    () => DataProducts.filter(p => p.isTopRated).slice(0, 3),
+    []
+  );
 
   const slides = [
     { id: 1, image: IMAGES.slide, title: "Fresh Vegetables", subtitle: "Big discount" },
@@ -149,6 +170,256 @@ const HomePage = () => {
       {/* Products and Category */}
       <ProductHome />
 
+      {/* Shop Now */}
+      <div className="px-24 py-4 grid grid-cols-3 gap-4">
+        <div className="relative shadow-md rounded-xl">
+          <img src={require('../../assets/image/products/shop_now_1.png')} alt="" className="w-full rounded-lg" />
+          <div className="absolute top-8 left-8 space-y-4">
+            <p className="text-black text-xl font-bold font-quicksand leading-tight">Everyday Fresh & <br /> Clean with Our <br /> Products</p>
+            <button className="bg-primary text-white px-4 py-2  text-sm font-medium hover:bg-primaryDark transition-colors">Shop Now →</button>
+          </div>
+        </div>
+
+        <div className="relative shadow-md rounded-xl">
+          <img src={require('../../assets/image/products/shop_now_2.png')} alt="" className="w-full rounded-lg" />
+          <div className="absolute top-8 left-8 space-y-4">
+            <p className="text-black text-xl font-bold font-quicksand leading-tight">Make your Breakfast <br /> Healthy and Easy</p>
+            <button className="bg-primary text-white px-4 py-2  text-sm font-medium hover:bg-primaryDark transition-colors">Shop Now →</button>
+          </div>
+        </div>
+
+        <div className="relative shadow-md rounded-xl">
+          <img src={require('../../assets/image/products/shop_now_3.png')} alt="" className="w-full rounded-lg" />
+          <div className="absolute top-8 left-8 space-y-4">
+            <p className="text-black text-xl font-bold font-quicksand leading-tight">The best Organic <br /> Products Online</p>
+            <button className="bg-primary text-white px-4 py-2  text-sm font-medium hover:bg-primaryDark transition-colors">Shop Now →</button>
+          </div>
+        </div>
+      </div>
+
+      {/* Shop by Categories */}
+      <div className="px-24 py-4">
+        <div className=" flex items-center justify-between">
+          <div className="flex items-center">
+            <p className="text-2xl font-bold font-quicksand">Shop by Categories</p>
+            <p className="text-primary text-xs ml-10 cursor-pointer hover:text-primaryDark hover:underline transition-colors">All Categories &gt;</p>
+          </div>
+          <div className="flex items-center space-x-2">
+            <ArrowLeft className="bg-gray-200 p-1 rounded-full cursor-pointer hover:bg-gray-300 transition-colors" />
+            <ArrowRight className="bg-gray-200 p-1 rounded-full cursor-pointer hover:bg-gray-300 transition-colors" />
+          </div>
+        </div>
+        <div className="flex items-center justify-between pt-4">
+          <div className="flex flex-col items-center bg-gray-100 p-4 rounded-lg space-y-1 hover:scale-105 transition-all cursor-pointer shadow-md">
+            <img src={require("../../assets/image/shop_category/image_1.png")} alt="" className="w-16" />
+            <p className="text-sm font-bold font-quicksand">Milks and Dairíes</p>
+            <p className="text-xs text-gray-400">5 items</p>
+          </div>
+          <div className="flex flex-col items-center bg-gray-100 p-4 rounded-lg space-y-1 hover:scale-105 transition-all cursor-pointer shadow-md">
+            <img src={require("../../assets/image/shop_category/image_2.png")} alt="" className="w-16" />
+            <p className="text-sm font-bold font-quicksand">Wines & Alcohol</p>
+            <p className="text-xs text-gray-400">4 items</p>
+          </div>
+          <div className="flex flex-col items-center bg-gray-100 p-4 rounded-lg space-y-1 hover:scale-105 transition-all cursor-pointer shadow-md">
+            <img src={require("../../assets/image/shop_category/image_3.png")} alt="" className="w-16" />
+            <p className="text-sm font-bold font-quicksand">Clothing & Beauty</p>
+            <p className="text-xs text-gray-400">4 items</p>
+          </div>
+          <div className="flex flex-col items-center bg-gray-100 p-4 rounded-lg space-y-1 hover:scale-105 transition-all cursor-pointer shadow-md">
+            <img src={require("../../assets/image/shop_category/image_4.png")} alt="" className="w-16" />
+            <p className="text-sm font-bold font-quicksand">Pet Foods & Toy</p>
+            <p className="text-xs text-gray-400">2 items</p>
+          </div>
+          <div className="flex flex-col items-center bg-gray-100 p-4 rounded-lg space-y-1 hover:scale-105 transition-all cursor-pointer shadow-md">
+            <img src={require("../../assets/image/shop_category/image_5.png")} alt="" className="w-16" />
+            <p className="text-sm font-bold font-quicksand">Packaged fast food</p>
+            <p className="text-xs text-gray-400">11 items</p>
+          </div>
+          <div className="flex flex-col items-center bg-gray-100 p-4 rounded-lg space-y-1 hover:scale-105 transition-all cursor-pointer shadow-md">
+            <img src={require("../../assets/image/shop_category/image_6.png")} alt="" className="w-16" />
+            <p className="text-sm font-bold font-quicksand">Baking material</p>
+            <p className="text-xs text-gray-400">11 items</p>
+          </div>
+          <div className="flex flex-col items-center bg-gray-100 p-4 rounded-lg space-y-1 hover:scale-105 transition-all cursor-pointer shadow-md">
+            <img src={require("../../assets/image/shop_category/image_7.png")} alt="" className="w-16" />
+            <p className="text-sm font-bold font-quicksand">Vegetables & tubers</p>
+            <p className="text-xs text-gray-400">6 items</p>
+          </div>
+          <div className="flex flex-col items-center bg-gray-100 p-4 rounded-lg space-y-1 hover:scale-105 transition-all cursor-pointer shadow-md">
+            <img src={require("../../assets/image/shop_category/image_8.png")} alt="" className="w-16" />
+            <p className="text-sm font-bold font-quicksand">Fresh Seafood</p>
+            <p className="text-xs text-gray-400">5 items</p>
+          </div>
+        </div>
+
+        <div className="grid-cols-4 grid gap-4 pt-4">
+          {/* Top Selling */}
+          <div>
+            <p className="text-xl font-bold font-quicksand pb-4">Top Selling</p>
+            <span className="block h-0.5 w-1/4 bg-primary mb-4"></span>
+            <div>
+              {
+                topSelling.map(product => (
+                  <div key={product.id} className="flex items-center space-x-2 cursor-pointer hover:scale-105 transition-all hover:shadow-lg rounded-md p-1 group">
+                    <img src={product.image} alt="" className="w-16" />
+                    <div>
+                      <p className="font-medium group-hover:text-primary">{product.title}</p>
+                      {[...Array(5)].map((_, index) => (
+                        <span key={index} className={`text-lg ${index < product.rating ? "text-yellow-400" : "text-gray-300"}`}>★</span>
+                      ))}
+                      <span className="text-xs text-gray-400">{product.rating}</span>
+                      <div className="flex items-center space-x-2">
+                        <p className="text-primary font-bold underline">${product.price}</p>
+                        <p className="text-gray-400 line-through">${product.oldPrice}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+          {/* Trending Products */}
+          <div>
+            <p className="text-xl font-bold font-quicksand pb-4">Trending Products</p>
+            <span className="block h-0.5 w-1/4 bg-primary mb-4"></span>
+            <div>
+              {
+                trendingProducts.map(product => (
+                  <div key={product.id} className="flex items-center space-x-2 cursor-pointer hover:scale-105 transition-all hover:shadow-lg rounded-md p-1 group">
+                    <img src={product.image} alt="" className="w-16" />
+                    <div>
+                      <p className="font-medium group-hover:text-primary">{product.title}</p>
+                      {[...Array(5)].map((_, index) => (
+                        <span key={index} className={`text-lg ${index < product.rating ? "text-yellow-400" : "text-gray-300"}`}>★</span>
+                      ))}
+                      <span className="text-xs text-gray-400">{product.rating}</span>
+                      <div className="flex items-center space-x-2">
+                        <p className="text-primary font-bold underline">${product.price}</p>
+                        <p className="text-gray-400 line-through">${product.oldPrice}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+          {/* Recently Added */}
+          <div>
+            <p className="text-xl font-bold font-quicksand pb-4">Recently Added</p>
+            <span className="block h-0.5 w-1/4 bg-primary mb-4"></span>
+            <div>
+              {
+                recentlyAdded.map(product => (
+                  <div key={product.id} className="flex items-center space-x-2 cursor-pointer hover:scale-105 transition-all hover:shadow-lg rounded-md p-1 group">
+                    <img src={product.image} alt="" className="w-16" />
+                    <div>
+                      <p className="font-medium group-hover:text-primary">{product.title}</p>
+                      {[...Array(5)].map((_, index) => (
+                        <span key={index} className={`text-lg ${index < product.rating ? "text-yellow-400" : "text-gray-300"}`}>★</span>
+                      ))}
+                      <span className="text-xs text-gray-400">{product.rating}</span>
+                      <div className="flex items-center space-x-2">
+                        <p className="text-primary font-bold underline">${product.price}</p>
+                        <p className="text-gray-400 line-through">${product.oldPrice}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+          {/* Top Rated */}
+          <div>
+            <p className="text-xl font-bold font-quicksand pb-4">Top Rated</p>
+            <span className="block h-0.5 w-1/4 bg-primary mb-4"></span>
+            <div>
+              {
+                topRatedProducts.map(product => (
+                  <div key={product.id} className="flex items-center space-x-2 cursor-pointer hover:scale-105 transition-all hover:shadow-lg rounded-md p-1 group">
+                    <img src={product.image} alt="" className="w-16" />
+                    <div>
+                      <p className="font-medium group-hover:text-primary">{product.title}</p>
+                      {[...Array(5)].map((_, index) => (
+                        <span key={index} className={`text-lg ${index < product.rating ? "text-yellow-400" : "text-gray-300"}`}>★</span>
+                      ))}
+                      <span className="text-xs text-gray-400">{product.rating}</span>
+                      <div className="flex items-center space-x-2">
+                        <p className="text-primary font-bold underline">${product.price}</p>
+                        <p className="text-gray-400 line-through">${product.oldPrice}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+
+        {/* form section */}
+        <div className="pt-4 relative">
+          <img src={require("../../assets/image/bg-nest-email.png")} alt="" className="w-full" />
+          <img src={require("../../assets/image/person-bg-nest.png")} alt="" className="absolute w-1/2 bottom-0 right-0 rounded-br-2xl" />
+          <div className="absolute top-1/4 left-24 space-y-2">
+            <p className="text-4xl font-bold font-quicksand line-clamp-2">Stay home & get your daily <br /> needs from our shop</p>
+            <p className="text-xl font-medium font-quicksand">Start Your Daily Shopping with <span className="text-primary">Nest Mart</span></p>
+            <div className="flex justify-center">
+              <div className="mt-6 border border-gray-300 rounded-full bg-white w-full focus:outline-none focus:ring-2 focus:ring-primary flex justify-between">
+                <input
+                  type="email"
+                  placeholder="Your email address"
+                  className="px-4 py-3 focus:outline-none rounded-full w-full text-sm text-gray-700"
+                  onFocus={() => setIsPaused(true)}
+                  onBlur={() => setIsPaused(false)}
+                />
+                <button className="bg-primary text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-primaryDark transition-colors">
+                  Subscribe
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* icon section selling */}
+        <div className="flex items-center justify-between space-x-4 pt-4">
+          <div className="flex items-center space-x-2 bg-gray-100 px-6 py-2 rounded-md shadow-md cursor-pointer hover:scale-105 transition-all hover:shadow-lg">
+            <img src={require("../../assets/image/icon_selling/best_prices_offers.png")} alt="" className="w-12" />
+            <div className="space-y-1">
+              <p className="font-medium text-sm">Best Prices & Offers</p>
+              <p className="text-xs text-gray-400">Orders $50 or more</p>
+            </div>
+          </div>
+          <div className="flex items-center space-x-2 bg-gray-100 px-6 py-2 rounded-md shadow-md cursor-pointer hover:scale-105 transition-all hover:shadow-lg">
+            <img src={require("../../assets/image/icon_selling/free_delivery.png")} alt="" className="w-12" />
+            <div className="space-y-1">
+              <p className="font-medium text-sm">Free Delivery</p>
+              <p className="text-xs text-gray-400">24/7 amazing services</p>
+            </div>
+          </div>
+          <div className="flex items-center space-x-2 bg-gray-100 px-6 py-2 rounded-md shadow-md cursor-pointer hover:scale-105 transition-all hover:shadow-lg">
+            <img src={require("../../assets/image/icon_selling/great_daily_deal.png")} alt="" className="w-12" />
+            <div className="space-y-1">
+              <p className="font-medium text-sm">Great Daily Deals</p>
+              <p className="text-xs text-gray-400">When you sign up</p>
+            </div>
+          </div>
+          <div className="flex items-center space-x-2 bg-gray-100 px-6 py-2 rounded-md shadow-md cursor-pointer hover:scale-105 transition-all hover:shadow-lg">
+            <img src={require("../../assets/image/icon_selling/wide_assortment.png")} alt="" className="w-12" />
+            <div className="space-y-1">
+              <p className="font-medium text-sm">Wide Assortment</p>
+              <p className="text-xs text-gray-400">Mega Discounts</p>
+            </div>
+          </div>
+          <div className="flex items-center space-x-2 bg-gray-100 px-8 py-2 rounded-md shadow-md cursor-pointer hover:scale-105 transition-all hover:shadow-lg">
+            <img src={require("../../assets/image/icon_selling/easy_returns.png")} alt="" className="w-12" />
+            <div className="space-y-1">
+              <p className="font-medium text-sm">Easy Returns</p>
+              <p className="text-xs text-gray-400">Within 30 days</p>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
     </div>
   );
 };
