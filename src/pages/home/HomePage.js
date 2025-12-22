@@ -132,21 +132,21 @@ const HomePage = () => {
           {/* Render all slides + first slide again at the end */}
           {[...slides, slides[0]].map((slide, index) => (
             <div key={`${slide.id}-${index}`} className="min-w-full relative">
-              <img src={slide.image} alt="Slide Banner" className="w-full cursor-pointer shadow-xl" />
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full">
-                <p className="text-[#253D4E] text-6xl font-bold font-quicksand">{slide.title}</p>
-                <p className="text-[#253D4E] text-6xl font-bold font-quicksand">{slide.subtitle}</p>
-                <p className="text-gray-400 text-lg font-medium mt-4">Sign up for the daily newsletter</p>
+              <img src={slide.image} alt="Slide Banner" className="w-full h-72 md:h-auto object-cover cursor-pointer shadow-xl" />
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full px-4">
+                <p className="text-[#253D4E] text-3xl md:text-6xl font-bold font-quicksand">{slide.title}</p>
+                <p className="text-[#253D4E] text-3xl md:text-6xl font-bold font-quicksand">{slide.subtitle}</p>
+                <p className="text-gray-400 text-sm md:text-lg font-medium mt-2 md:mt-4">Sign up for the daily newsletter</p>
                 <div className="flex justify-center">
-                  <div className="space-x-2 mt-6 border border-gray-300 rounded-full bg-white w-96 focus:outline-none focus:ring-2 focus:ring-primary flex justify-between">
+                  <div className="space-x-2 mt-4 md:mt-6 border border-gray-300 rounded-full bg-white w-full max-w-sm md:max-w-md focus:outline-none focus:ring-2 focus:ring-primary flex justify-between p-1">
                     <input
                       type="email"
                       placeholder="Your email address"
-                      className="px-4 py-3 focus:outline-none rounded-full w-full text-sm text-gray-700"
+                      className="px-4 py-2 md:py-3 focus:outline-none rounded-full w-full text-xs md:text-sm text-gray-700"
                       onFocus={() => setIsPaused(true)}
                       onBlur={() => setIsPaused(false)}
                     />
-                    <button className="bg-primary text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-primaryDark transition-colors">
+                    <button className="bg-primary text-white px-4 md:px-6 py-2 md:py-3 rounded-full text-xs md:text-sm font-medium hover:bg-primaryDark transition-colors whitespace-nowrap">
                       Subscribe
                     </button>
                   </div>
