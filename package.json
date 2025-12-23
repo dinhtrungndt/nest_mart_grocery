@@ -17,8 +17,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "cross-env GENERATE_SOURCEMAP=false react-scripts build",
-    "postbuild": "npx javascript-obfuscator build/static/js --output build/static/js --compact true --control-flow-flattening true --control-flow-flattening-threshold 1 --string-array true --string-array-encoding rc4 --dead-code-injection true --dead-code-injection-threshold 0.4 --self-defending true --debug-protection true --disable-console-output true --target browser",
+    "build": "cross-env GENERATE_SOURCEMAP=false react-scripts build && npx javascript-obfuscator build/static/js --output build/static/js --compact true --string-array true --target browser --reserved-strings 'password' 'username' 'accessToken' 'refreshToken'",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
