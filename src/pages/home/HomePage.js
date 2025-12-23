@@ -1,10 +1,6 @@
 import { ArrowLeft, ArrowRight, CircleUserRound, Heart, RefreshCcw, ShoppingCart } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
-import BottomFooter from '../../components/footer/bottomFooter';
-import Footer from '../../components/footer/footer';
-import Navbar from '../../components/navbar/Navbar';
 import ProductHome from '../../components/products/product_home';
-import TopBar_Header from '../../components/topbar/topbar_header';
 import { IMAGES } from '../../constants/images/image';
 import { DataProducts } from '../../stores/data/products';
 
@@ -72,8 +68,6 @@ const HomePage = () => {
 
   return (
     <div>
-      {/* TopHeader */}
-      <TopBar_Header />
       {/* Header */}
       <div className="flex flex-wrap md:flex-nowrap justify-between items-center p-4 px-4 md:px-12 lg:px-24 gap-4">
         <img src={IMAGES.logo} alt="Header Banner" className="w-24 cursor-pointer" />
@@ -116,8 +110,6 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      {/* Navbar */}
-      <Navbar />
 
       {/* Slide with infinite loop */}
       <div
@@ -419,12 +411,7 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-
-        {/* footer */}
-        <Footer />
       </div>
-
-      <BottomFooter />
     </div>
   );
 };

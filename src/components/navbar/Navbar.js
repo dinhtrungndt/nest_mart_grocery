@@ -1,5 +1,6 @@
 import { ChevronDown, Flame, Headset, LayoutGrid, Logs } from 'lucide-react';
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,95 +35,159 @@ const Navbar = () => {
           </div>
           <div className="flex flex-col py-4 space-y-2 overflow-y-auto h-full pb-20">
             {/* Hot Deals */}
-            <div className="flex items-center space-x-3 px-6 py-3 hover:bg-gray-50 cursor-pointer transition-colors group">
-              <Flame size={20} className="text-red-500" />
-              <p className="text-gray-700 font-medium group-hover:text-primary transition-colors">Hot Deals</p>
-            </div>
+            <NavLink to="/hot-deals" className="flex items-center space-x-3 px-6 py-3 hover:bg-gray-50 cursor-pointer transition-colors group">
+              {({ isActive }) => (
+                <>
+                  <Flame size={20} className="text-red-500" />
+                  <p className={`font-medium transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>Hot Deals</p>
+                </>
+              )}
+            </NavLink>
             {/* Home */}
-            <div className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 cursor-pointer transition-colors group">
-              <span className="text-gray-700 font-medium group-hover:text-primary transition-colors">Home</span>
-              <ChevronDown size={18} className="text-gray-400 group-hover:text-primary transition-colors" />
-            </div>
+            <NavLink to="/" className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 cursor-pointer transition-colors group">
+              {({ isActive }) => (
+                <>
+                  <span className={`font-medium transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>Home</span>
+                  <ChevronDown size={18} className={`transition-colors ${isActive ? 'text-primary' : 'text-gray-400 group-hover:text-primary'}`} />
+                </>
+              )}
+            </NavLink>
             {/* About */}
-            <div className="flex items-center px-6 py-3 hover:bg-gray-50 cursor-pointer transition-colors group">
-              <span className="text-gray-700 font-medium group-hover:text-primary transition-colors">About</span>
-            </div>
+            <NavLink to="/about" className="flex items-center px-6 py-3 hover:bg-gray-50 cursor-pointer transition-colors group">
+              {({ isActive }) => (
+                <span className={`font-medium transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>About</span>
+              )}
+            </NavLink>
             {/* Shop */}
-            <div className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 cursor-pointer transition-colors group">
-              <span className="text-gray-700 font-medium group-hover:text-primary transition-colors">Shop</span>
-              <ChevronDown size={18} className="text-gray-400 group-hover:text-primary transition-colors" />
-            </div>
+            <NavLink to="/shop" className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 cursor-pointer transition-colors group">
+              {({ isActive }) => (
+                <>
+                  <span className={`font-medium transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>Shop</span>
+                  <ChevronDown size={18} className={`transition-colors ${isActive ? 'text-primary' : 'text-gray-400 group-hover:text-primary'}`} />
+                </>
+              )}
+            </NavLink>
             {/* Mega Menu */}
-            <div className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 cursor-pointer transition-colors group">
-              <span className="text-gray-700 font-medium group-hover:text-primary transition-colors">Mega Menu</span>
-              <ChevronDown size={18} className="text-gray-400 group-hover:text-primary transition-colors" />
-            </div>
+            <NavLink to="/mega-menu" className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 cursor-pointer transition-colors group">
+              {({ isActive }) => (
+                <>
+                  <span className={`font-medium transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>Mega Menu</span>
+                  <ChevronDown size={18} className={`transition-colors ${isActive ? 'text-primary' : 'text-gray-400 group-hover:text-primary'}`} />
+                </>
+              )}
+            </NavLink>
             {/* Vendors */}
-            <div className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 cursor-pointer transition-colors group">
-              <span className="text-gray-700 font-medium group-hover:text-primary transition-colors">Vendors</span>
-              <ChevronDown size={18} className="text-gray-400 group-hover:text-primary transition-colors" />
-            </div>
+            <NavLink to="/vendors" className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 cursor-pointer transition-colors group">
+              {({ isActive }) => (
+                <>
+                  <span className={`font-medium transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>Vendors</span>
+                  <ChevronDown size={18} className={`transition-colors ${isActive ? 'text-primary' : 'text-gray-400 group-hover:text-primary'}`} />
+                </>
+              )}
+            </NavLink>
             {/* Blog */}
-            <div className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 cursor-pointer transition-colors group">
-              <span className="text-gray-700 font-medium group-hover:text-primary transition-colors">Blog</span>
-              <ChevronDown size={18} className="text-gray-400 group-hover:text-primary transition-colors" />
-            </div>
+            <NavLink to="/blog" className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 cursor-pointer transition-colors group">
+              {({ isActive }) => (
+                <>
+                  <span className={`font-medium transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>Blog</span>
+                  <ChevronDown size={18} className={`transition-colors ${isActive ? 'text-primary' : 'text-gray-400 group-hover:text-primary'}`} />
+                </>
+              )}
+            </NavLink>
             {/* Pages */}
-            <div className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 cursor-pointer transition-colors group">
-              <span className="text-gray-700 font-medium group-hover:text-primary transition-colors">Pages</span>
-              <ChevronDown size={18} className="text-gray-400 group-hover:text-primary transition-colors" />
-            </div>
+            <NavLink to="/pages" className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 cursor-pointer transition-colors group">
+              {({ isActive }) => (
+                <>
+                  <span className={`font-medium transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>Pages</span>
+                  <ChevronDown size={18} className={`transition-colors ${isActive ? 'text-primary' : 'text-gray-400 group-hover:text-primary'}`} />
+                </>
+              )}
+            </NavLink>
             {/* Contact */}
-            <div className="flex items-center px-6 py-3 hover:bg-gray-50 cursor-pointer transition-colors group">
-              <span className="text-gray-700 font-medium group-hover:text-primary transition-colors">Contact</span>
-            </div>
+            <NavLink to="/contact" className="flex items-center px-6 py-3 hover:bg-gray-50 cursor-pointer transition-colors group">
+              {({ isActive }) => (
+                <span className={`font-medium transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>Contact</span>
+              )}
+            </NavLink>
           </div>
         </div>
       </div>
       <div className="items-center space-x-6 hidden md:flex">
         {/* Hot Deals */}
-        <div className="flex items-center space-x-1 cursor-pointer group">
-          <Flame size={16} className="text-red-500" />
-          <p className="text-gray-700 group-hover:text-primary transition-colors">Hot Deals</p>
-        </div>
+        <NavLink to="/hot-deals" className="flex items-center space-x-1 cursor-pointer group">
+          {({ isActive }) => (
+            <>
+              <Flame size={16} className="text-red-500" />
+              <p className={`transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>Hot Deals</p>
+            </>
+          )}
+        </NavLink>
         {/* Home */}
-        <div className="flex items-center space-x-1 cursor-pointer group">
-          <span className="text-gray-700 group-hover:text-primary transition-colors">Home</span>
-          <ChevronDown size={16} className="group-hover:text-primary transition-colors" />
-        </div>
+        <NavLink to="/" className="flex items-center space-x-1 cursor-pointer group">
+          {({ isActive }) => (
+            <>
+              <span className={`transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>Home</span>
+              <ChevronDown size={16} className={`transition-colors ${isActive ? 'text-primary' : 'group-hover:text-primary'}`} />
+            </>
+          )}
+        </NavLink>
         {/* About */}
-        <div className="flex items-center space-x-1 cursor-pointer group">
-          <span className="text-gray-700 group-hover:text-primary transition-colors">About</span>
-        </div>
+        <NavLink to="/about" className="flex items-center space-x-1 cursor-pointer group">
+          {({ isActive }) => (
+            <span className={`transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>About</span>
+          )}
+        </NavLink>
         {/* Shop */}
-        <div className="flex items-center space-x-1 cursor-pointer group">
-          <span className="text-gray-700 group-hover:text-primary transition-colors">Shop</span>
-          <ChevronDown size={16} className="group-hover:text-primary transition-colors" />
-        </div>
+        <NavLink to="/shop" className="flex items-center space-x-1 cursor-pointer group">
+          {({ isActive }) => (
+            <>
+              <span className={`transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>Shop</span>
+              <ChevronDown size={16} className={`transition-colors ${isActive ? 'text-primary' : 'group-hover:text-primary'}`} />
+            </>
+          )}
+        </NavLink>
         {/* Mega Menu */}
-        <div className="flex items-center space-x-1 cursor-pointer group">
-          <span className="text-gray-700 group-hover:text-primary transition-colors">Mega Menu</span>
-          <ChevronDown size={16} className="group-hover:text-primary transition-colors" />
-        </div>
+        <NavLink to="/mega-menu" className="flex items-center space-x-1 cursor-pointer group">
+          {({ isActive }) => (
+            <>
+              <span className={`transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>Mega Menu</span>
+              <ChevronDown size={16} className={`transition-colors ${isActive ? 'text-primary' : 'group-hover:text-primary'}`} />
+            </>
+          )}
+        </NavLink>
         {/* Vendors */}
-        <div className="flex items-center space-x-1 cursor-pointer group">
-          <span className="text-gray-700 group-hover:text-primary transition-colors">Vendors</span>
-          <ChevronDown size={16} className="group-hover:text-primary transition-colors" />
-        </div>
+        <NavLink to="/vendors" className="flex items-center space-x-1 cursor-pointer group">
+          {({ isActive }) => (
+            <>
+              <span className={`transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>Vendors</span>
+              <ChevronDown size={16} className={`transition-colors ${isActive ? 'text-primary' : 'group-hover:text-primary'}`} />
+            </>
+          )}
+        </NavLink>
         {/* Blog */}
-        <div className="flex items-center space-x-1 cursor-pointer group">
-          <span className="text-gray-700 group-hover:text-primary transition-colors">Blog</span>
-          <ChevronDown size={16} className="group-hover:text-primary transition-colors" />
-        </div>
+        <NavLink to="/blog" className="flex items-center space-x-1 cursor-pointer group">
+          {({ isActive }) => (
+            <>
+              <span className={`transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>Blog</span>
+              <ChevronDown size={16} className={`transition-colors ${isActive ? 'text-primary' : 'group-hover:text-primary'}`} />
+            </>
+          )}
+        </NavLink>
         {/* Pages */}
-        <div className="flex items-center space-x-1 cursor-pointer group">
-          <span className="text-gray-700 group-hover:text-primary transition-colors">Pages</span>
-          <ChevronDown size={16} className="group-hover:text-primary transition-colors" />
-        </div>
+        <NavLink to="/pages" className="flex items-center space-x-1 cursor-pointer group">
+          {({ isActive }) => (
+            <>
+              <span className={`transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>Pages</span>
+              <ChevronDown size={16} className={`transition-colors ${isActive ? 'text-primary' : 'group-hover:text-primary'}`} />
+            </>
+          )}
+        </NavLink>
         {/* Contact */}
-        <div className="flex items-center space-x-1 cursor-pointer group">
-          <span className="text-gray-700 group-hover:text-primary transition-colors">Contact</span>
-        </div>
+        <NavLink to="/contact" className="flex items-center space-x-1 cursor-pointer group">
+          {({ isActive }) => (
+            <span className={`transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>Contact</span>
+          )}
+        </NavLink>
       </div>
       {/* Contact Phone */}
       <div className="flex items-center space-x-2">
