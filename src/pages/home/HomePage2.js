@@ -1,11 +1,11 @@
-import { ArrowLeft, ArrowRight, CircleUserRound, Heart, RefreshCcw, ShoppingCart } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ChevronDown, CircleUserRound, Heart, MapPin, RefreshCcw, Search, ShoppingCart } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 import Navbar from '../../components/navbar/Navbar';
 import ProductHome from '../../components/products/product_home';
 import { IMAGES } from '../../constants/images/image';
 import { DataProducts } from '../../stores/data/products';
 
-const HomePage = () => {
+const HomePage2 = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
@@ -72,12 +72,14 @@ const HomePage = () => {
       {/* Header */}
       <div className="flex flex-wrap md:flex-nowrap justify-between items-center p-4 px-4 md:px-12 lg:px-24 gap-4">
         <img src={IMAGES.logo} alt="Header Banner" className="w-24 cursor-pointer" />
-        <div className="flex justify-between border border-primary rounded-sm p-1 w-full order-last md:order-none md:w-1/3">
-          <input type="text" placeholder="Search for products..." className="px-4 text-xs w-full focus:outline-none" />
-          <button className="bg-primary text-white px-6 py-2 rounded-sm text-xs hover:bg-primaryDark transition-colors">Search</button>
+        <div className="flex items-center justify-start border border-primary rounded-sm p-1 w-full order-last md:order-none md:w-1/3">
+          <p className="text-xs font-semibold flex items-center cursor-pointer hover:bg-gray-200 transition-colors hover:text-primary p-1 rounded-sm mr-2">All Categories <ChevronDown size={16} className="ml-1" /></p>
+          <span className="block h-5 w-0.5 bg-primaryLight" />
+          <input type="text" placeholder="Search for products..." className="px-2 w-[56%] md:w-2/3 text-xs focus:outline-none" />
+          <Search size={20} className="cursor-pointer text-gray-500 ml-2" />
         </div>
         <div className="flex items-center space-x-2 md:space-x-6">
-          <button className="flex border border-primary text-primary p-1 md:p-2 rounded-sm text-xs hover:bg-primaryDark transition-colors hover:text-white"><span className="md:inline">Became Vendor</span> <ArrowRight size={16} className="ml-1" /></button>
+          <button className="flex items-center border border-primary text-primary p-1 md:p-2 rounded-sm text-xs hover:bg-primaryDark transition-colors hover:text-white"><MapPin size={16} className="mr-1" /><span className="md:inline">Your Location</span> <ChevronDown size={16} className="ml-1" /></button>
           {/* Compare with badge */}
           <div className="flex items-center cursor-pointer transition-colors relative group">
             <div className="relative">
@@ -420,4 +422,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default HomePage2;
