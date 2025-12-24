@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import BottomFooter from './components/footer/bottomFooter';
 import Footer from './components/footer/footer';
-import TopBar_Header from './components/topbar/topbar_header';
+import TopBarHeader from './components/topbar/topbar_header';
 import AboutPage from './pages/about/AboutPage';
 import HomePage from './pages/home/HomePage';
 import HomePage2 from './pages/home/HomePage2';
@@ -9,7 +9,7 @@ import HomePage2 from './pages/home/HomePage2';
 function App() {
   return (
     <div className="app-container">
-      <TopBar_Header />
+      <TopBarHeader />
 
       <Routes>
         <Route path="/" element={<HomePage />} />

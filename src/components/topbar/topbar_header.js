@@ -2,7 +2,7 @@ import { ChevronDown, MoreHorizontal } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const TopBar_Header = () => {
+const TopBarHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -50,4 +50,4 @@ const TopBar_Header = () => {
   );
 };
 
-export default TopBar_Header;
+export default TopBarHeader;
