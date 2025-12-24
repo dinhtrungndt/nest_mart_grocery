@@ -4,6 +4,11 @@ import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [expandedMobileMenu, setExpandedMobileMenu] = useState(null);
+
+  const toggleMobileMenu = (menu) => {
+    setExpandedMobileMenu(expandedMobileMenu === menu ? null : menu);
+  };
 
   // Helper to render dropdown links
   const renderDropdownLinks = (links) => (
@@ -59,14 +64,23 @@ const Navbar = () => {
               )}
             </NavLink>
             {/* Home */}
-            <NavLink to="/" className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 cursor-pointer transition-colors group">
-              {({ isActive }) => (
-                <>
-                  <span className={`font-medium transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>Home</span>
-                  <ChevronDown size={18} className={`transition-colors ${isActive ? 'text-primary' : 'text-gray-400 group-hover:text-primary'}`} />
-                </>
-              )}
-            </NavLink>
+            {/* Home */}
+            <div className="flex flex-col">
+              <div className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 transition-colors group">
+                <NavLink to="/" className={({ isActive }) => `font-medium transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>
+                  Home
+                </NavLink>
+                <button onClick={() => toggleMobileMenu('home')} className="p-1">
+                  <ChevronDown size={18} className={`transition-transform duration-300 ${expandedMobileMenu === 'home' ? 'rotate-180 text-primary' : 'text-gray-400 group-hover:text-primary'}`} />
+                </button>
+              </div>
+              <div className={`overflow-hidden transition-all duration-300 ${expandedMobileMenu === 'home' ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className="bg-gray-50 px-8 py-2 space-y-2 flex flex-col">
+                  <NavLink to="/" className="text-gray-600 hover:text-primary py-1">Home 1</NavLink>
+                  <NavLink to="/home-2" className="text-gray-600 hover:text-primary py-1">Home 2</NavLink>
+                </div>
+              </div>
+            </div>
             {/* About */}
             <NavLink to="/about" className="flex items-center px-6 py-3 hover:bg-gray-50 cursor-pointer transition-colors group">
               {({ isActive }) => (
@@ -74,50 +88,110 @@ const Navbar = () => {
               )}
             </NavLink>
             {/* Shop */}
-            <NavLink to="/shop" className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 cursor-pointer transition-colors group">
-              {({ isActive }) => (
-                <>
-                  <span className={`font-medium transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>Shop</span>
-                  <ChevronDown size={18} className={`transition-colors ${isActive ? 'text-primary' : 'text-gray-400 group-hover:text-primary'}`} />
-                </>
-              )}
-            </NavLink>
+            {/* Shop */}
+            <div className="flex flex-col">
+              <div className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 transition-colors group">
+                <NavLink to="/shop" className={({ isActive }) => `font-medium transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>
+                  Shop
+                </NavLink>
+                <button onClick={() => toggleMobileMenu('shop')} className="p-1">
+                  <ChevronDown size={18} className={`transition-transform duration-300 ${expandedMobileMenu === 'shop' ? 'rotate-180 text-primary' : 'text-gray-400 group-hover:text-primary'}`} />
+                </button>
+              </div>
+              <div className={`overflow-hidden transition-all duration-300 ${expandedMobileMenu === 'shop' ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className="bg-gray-50 px-8 py-2 space-y-2 flex flex-col">
+                  <NavLink to="/shop" className="text-gray-600 hover:text-primary py-1">Shop Grid</NavLink>
+                  <NavLink to="/shop-list" className="text-gray-600 hover:text-primary py-1">Shop List</NavLink>
+                  <NavLink to="/shop-details" className="text-gray-600 hover:text-primary py-1">Shop Details</NavLink>
+                  <NavLink to="/shop-filter" className="text-gray-600 hover:text-primary py-1">Shop Filter</NavLink>
+                </div>
+              </div>
+            </div>
             {/* Mega Menu */}
-            <NavLink to="/mega-menu" className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 cursor-pointer transition-colors group">
-              {({ isActive }) => (
-                <>
-                  <span className={`font-medium transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>Mega Menu</span>
-                  <ChevronDown size={18} className={`transition-colors ${isActive ? 'text-primary' : 'text-gray-400 group-hover:text-primary'}`} />
-                </>
-              )}
-            </NavLink>
+            {/* Mega Menu */}
+            <div className="flex flex-col">
+              <div className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 transition-colors group">
+                <NavLink to="/mega-menu" className={({ isActive }) => `font-medium transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>
+                  Mega Menu
+                </NavLink>
+                <button onClick={() => toggleMobileMenu('mega-menu')} className="p-1">
+                  <ChevronDown size={18} className={`transition-transform duration-300 ${expandedMobileMenu === 'mega-menu' ? 'rotate-180 text-primary' : 'text-gray-400 group-hover:text-primary'}`} />
+                </button>
+              </div>
+              <div className={`overflow-hidden transition-all duration-300 ${expandedMobileMenu === 'mega-menu' ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className="bg-gray-50 px-8 py-2 space-y-4 flex flex-col">
+                  <div className="space-y-1">
+                    <p className="font-bold text-primary text-sm">Fruit</p>
+                    <NavLink to="/shop" className="block text-gray-600 hover:text-primary text-sm pl-2">Apple</NavLink>
+                    <NavLink to="/shop" className="block text-gray-600 hover:text-primary text-sm pl-2">Banana</NavLink>
+                  </div>
+                  <div className="space-y-1">
+                    <p className="font-bold text-primary text-sm">Meat</p>
+                    <NavLink to="/shop" className="block text-gray-600 hover:text-primary text-sm pl-2">Beef</NavLink>
+                    <NavLink to="/shop" className="block text-gray-600 hover:text-primary text-sm pl-2">Chicken</NavLink>
+                  </div>
+                </div>
+              </div>
+            </div>
             {/* Vendors */}
-            <NavLink to="/vendors" className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 cursor-pointer transition-colors group">
-              {({ isActive }) => (
-                <>
-                  <span className={`font-medium transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>Vendors</span>
-                  <ChevronDown size={18} className={`transition-colors ${isActive ? 'text-primary' : 'text-gray-400 group-hover:text-primary'}`} />
-                </>
-              )}
-            </NavLink>
+            {/* Vendors */}
+            <div className="flex flex-col">
+              <div className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 transition-colors group">
+                <NavLink to="/vendors" className={({ isActive }) => `font-medium transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>
+                  Vendors
+                </NavLink>
+                <button onClick={() => toggleMobileMenu('vendors')} className="p-1">
+                  <ChevronDown size={18} className={`transition-transform duration-300 ${expandedMobileMenu === 'vendors' ? 'rotate-180 text-primary' : 'text-gray-400 group-hover:text-primary'}`} />
+                </button>
+              </div>
+              <div className={`overflow-hidden transition-all duration-300 ${expandedMobileMenu === 'vendors' ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className="bg-gray-50 px-8 py-2 space-y-2 flex flex-col">
+                  <NavLink to="/vendors" className="text-gray-600 hover:text-primary py-1">Vendors Grid</NavLink>
+                  <NavLink to="/vendors-list" className="text-gray-600 hover:text-primary py-1">Vendors List</NavLink>
+                  <NavLink to="/vendor-details" className="text-gray-600 hover:text-primary py-1">Vendor Details</NavLink>
+                </div>
+              </div>
+            </div>
             {/* Blog */}
-            <NavLink to="/blog" className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 cursor-pointer transition-colors group">
-              {({ isActive }) => (
-                <>
-                  <span className={`font-medium transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>Blog</span>
-                  <ChevronDown size={18} className={`transition-colors ${isActive ? 'text-primary' : 'text-gray-400 group-hover:text-primary'}`} />
-                </>
-              )}
-            </NavLink>
+            {/* Blog */}
+            <div className="flex flex-col">
+              <div className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 transition-colors group">
+                <NavLink to="/blog" className={({ isActive }) => `font-medium transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>
+                  Blog
+                </NavLink>
+                <button onClick={() => toggleMobileMenu('blog')} className="p-1">
+                  <ChevronDown size={18} className={`transition-transform duration-300 ${expandedMobileMenu === 'blog' ? 'rotate-180 text-primary' : 'text-gray-400 group-hover:text-primary'}`} />
+                </button>
+              </div>
+              <div className={`overflow-hidden transition-all duration-300 ${expandedMobileMenu === 'blog' ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className="bg-gray-50 px-8 py-2 space-y-2 flex flex-col">
+                  <NavLink to="/blog" className="text-gray-600 hover:text-primary py-1">Blog Category</NavLink>
+                  <NavLink to="/blog-single" className="text-gray-600 hover:text-primary py-1">Blog Single</NavLink>
+                </div>
+              </div>
+            </div>
             {/* Pages */}
-            <NavLink to="/pages" className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 cursor-pointer transition-colors group">
-              {({ isActive }) => (
-                <>
-                  <span className={`font-medium transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>Pages</span>
-                  <ChevronDown size={18} className={`transition-colors ${isActive ? 'text-primary' : 'text-gray-400 group-hover:text-primary'}`} />
-                </>
-              )}
-            </NavLink>
+            {/* Pages */}
+            <div className="flex flex-col">
+              <div className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 transition-colors group">
+                <NavLink to="/pages" className={({ isActive }) => `font-medium transition-colors ${isActive ? 'text-primary font-bold' : 'text-gray-700 group-hover:text-primary'}`}>
+                  Pages
+                </NavLink>
+                <button onClick={() => toggleMobileMenu('pages')} className="p-1">
+                  <ChevronDown size={18} className={`transition-transform duration-300 ${expandedMobileMenu === 'pages' ? 'rotate-180 text-primary' : 'text-gray-400 group-hover:text-primary'}`} />
+                </button>
+              </div>
+              <div className={`overflow-hidden transition-all duration-300 ${expandedMobileMenu === 'pages' ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className="bg-gray-50 px-8 py-2 space-y-2 flex flex-col">
+                  <NavLink to="/about" className="text-gray-600 hover:text-primary py-1">About Us</NavLink>
+                  <NavLink to="/contact" className="text-gray-600 hover:text-primary py-1">Contact</NavLink>
+                  <NavLink to="/account" className="text-gray-600 hover:text-primary py-1">My Account</NavLink>
+                  <NavLink to="/login" className="text-gray-600 hover:text-primary py-1">Login</NavLink>
+                  <NavLink to="/register" className="text-gray-600 hover:text-primary py-1">Register</NavLink>
+                  <NavLink to="/404" className="text-gray-600 hover:text-primary py-1">404 Page</NavLink>
+                </div>
+              </div>
+            </div>
             {/* Contact */}
             <NavLink to="/contact" className="flex items-center px-6 py-3 hover:bg-gray-50 cursor-pointer transition-colors group">
               {({ isActive }) => (

@@ -18,7 +18,7 @@ const Category = ({ selectedCategory, onSelectCategory }) => {
   const categories = [...categoryMap.values()];
 
   return (
-    <div className="w-full shadow-md p-4 rounded-lg h-fit border border-gray-200">
+    <div className="shadow-md p-4 rounded-lg h-fit border border-gray-200">
       <p className="text-lg font-bold font-quicksand">Category</p>
       <span className="block h-0.5 w-10 bg-primary mt-2 mb-4"></span>
       {categories.map((cat, index) => (
