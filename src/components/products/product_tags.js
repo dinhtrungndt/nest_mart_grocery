@@ -1,6 +1,6 @@
 import { DataProducts } from '../../stores/data/products';
 
-const Product_Tags = ({ selectedTag, onSelectTag }) => {
+const ProductTags = ({ selectedTag, onSelectTag }) => {
   const tagMap = new Map();
 
   DataProducts.forEach((p) => {
@@ -46,4 +46,4 @@ const Product_Tags = ({ selectedTag, onSelectTag }) => {
   );
 };
 
-export default Product_Tags;
+export default ProductTags;

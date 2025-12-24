@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { DataProducts } from '../../stores/data/products';
 import Category from './category';
 import DealsOfTheDay from './DealsOfTheDay';
-import Product_Tags from './product_tags';
+import ProductTags from './product_tags';
 
 const ProductHome = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -89,7 +89,7 @@ const ProductHome = () => {
             selectedCategory={selectedCategory}
             onSelectCategory={setSelectedCategory}
           />
-          <Product_Tags
+          <ProductTags
             selectedTag={selectedTag}
             onSelectTag={setSelectedTag}
           />
