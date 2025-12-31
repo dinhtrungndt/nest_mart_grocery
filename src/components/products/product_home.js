@@ -1,13 +1,17 @@
 import { ShoppingCart } from 'lucide-react';
-import { useState } from 'react';
 import { DataProducts } from '../../stores/data/products';
 import Category from './category';
 import DealsOfTheDay from './DealsOfTheDay';
 import ProductTags from './product_tags';
 
-const ProductHome = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [selectedTag, setSelectedTag] = useState(null);
+const ProductHome = ({
+  selectedCategory,
+  setSelectedCategory,
+  selectedTag,
+  setSelectedTag,
+  showFilters = true,
+  className = "p-4 md:p-6 lg:px-24",
+}) => {
 
 
   const filteredProducts = DataProducts.filter((p) => {
@@ -20,29 +24,28 @@ const ProductHome = () => {
     return matchCategory && matchTag;
   });
 
-  const handleSelectCategory = (category) => {
-    setSelectedCategory(category);
-    setSelectedTag(null);
-  };
+
 
   return (
-    <div className="p-4 md:p-6 lg:px-24">
+    <div className={className}>
       {/* Product Category */}
-      <div className="flex flex-col md:flex-row justify-between items-center my-4 gap-4">
-        <h1 className="text-2xl font-bold font-quicksand">Popular Products</h1>
-        <div className="flex flex-wrap justify-center gap-2 md:space-x-6 text-sm font-medium">
-          <p className={`hover:text-primary cursor-pointer transition-colors ${selectedCategory === 'All' ? 'text-primary' : ''}`} onClick={() => handleSelectCategory('All')}>All</p>
-          <p className={`hover:text-primary cursor-pointer transition-colors ${selectedCategory === 'Baking material' ? 'text-primary' : ''}`} onClick={() => handleSelectCategory('Baking material')}>Baking material</p>
-          <p className={`hover:text-primary cursor-pointer transition-colors ${selectedCategory === 'Fresh Fruits' ? 'text-primary' : ''}`} onClick={() => handleSelectCategory('Fresh Fruits')}>Fresh Fruits</p>
-          <p className={`hover:text-primary cursor-pointer transition-colors ${selectedCategory === 'Milks & Dairies' ? 'text-primary' : ''}`} onClick={() => handleSelectCategory('Milks & Dairies')}>Milks & Dairies</p>
-          <p className={`hover:text-primary cursor-pointer transition-colors ${selectedCategory === 'Meats' ? 'text-primary' : ''}`} onClick={() => handleSelectCategory('Meats')}>Meats</p>
-          <p className={`hover:text-primary cursor-pointer transition-colors ${selectedCategory === 'Vegetables' ? 'text-primary' : ''}`} onClick={() => handleSelectCategory('Vegetables')}>Vegetables</p>
+      {showFilters && (
+        <div className="flex flex-col md:flex-row justify-between items-center my-4 gap-4">
+          <h1 className="text-2xl font-bold font-quicksand">Popular Products</h1>
+          <div className="flex flex-wrap justify-center gap-2 md:space-x-6 text-sm font-medium">
+            <p className={`hover:text-primary cursor-pointer transition-colors ${selectedCategory === 'All' ? 'text-primary' : ''}`} onClick={() => setSelectedCategory('All')}>All</p>
+            <p className={`hover:text-primary cursor-pointer transition-colors ${selectedCategory === 'Baking material' ? 'text-primary' : ''}`} onClick={() => setSelectedCategory('Baking material')}>Baking material</p>
+            <p className={`hover:text-primary cursor-pointer transition-colors ${selectedCategory === 'Fresh Fruits' ? 'text-primary' : ''}`} onClick={() => setSelectedCategory('Fresh Fruits')}>Fresh Fruits</p>
+            <p className={`hover:text-primary cursor-pointer transition-colors ${selectedCategory === 'Milks & Dairies' ? 'text-primary' : ''}`} onClick={() => setSelectedCategory('Milks & Dairies')}>Milks & Dairies</p>
+            <p className={`hover:text-primary cursor-pointer transition-colors ${selectedCategory === 'Meats' ? 'text-primary' : ''}`} onClick={() => setSelectedCategory('Meats')}>Meats</p>
+            <p className={`hover:text-primary cursor-pointer transition-colors ${selectedCategory === 'Vegetables' ? 'text-primary' : ''}`} onClick={() => setSelectedCategory('Vegetables')}>Vegetables</p>
+          </div>
         </div>
-      </div>
+      )}
       {/* Product and Category */}
       <div className="flex flex-col lg:grid lg:grid-cols-6 gap-6">
         {/* Products */}
-        <div className="order-2 lg:order-none col-span-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+        <div className={`order-2 lg:order-none ${showFilters ? 'col-span-5' : 'col-span-6'} grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6`}>
           {filteredProducts.slice(0, 15).map((product) => (
             <div key={product.id} className="relative border border-gray-200 h-fit rounded-2xl shadow-md hover:scale-105 cursor-pointer p-4 transition-transform group">
               <img src={product.image} alt={product.name} className="" />
@@ -84,18 +87,20 @@ const ProductHome = () => {
             </div>
           ))}
         </div>
-        <div className="order-1 lg:order-none w-full">
-          <Category
-            selectedCategory={selectedCategory}
-            onSelectCategory={setSelectedCategory}
-          />
-          <ProductTags
-            selectedTag={selectedTag}
-            onSelectTag={setSelectedTag}
-          />
-        </div>
+        {showFilters && (
+          <div className="order-1 lg:order-none w-full">
+            <Category
+              selectedCategory={selectedCategory}
+              onSelectCategory={setSelectedCategory}
+            />
+            <ProductTags
+              selectedTag={selectedTag}
+              onSelectTag={setSelectedTag}
+            />
+          </div>
+        )}
         {/* Deals Of The Day */}
-        <div className="order-3 lg:order-none col-span-5">
+        <div className={`order-3 lg:order-none ${showFilters ? 'col-span-5' : 'col-span-6'}`}>
           <DealsOfTheDay />
         </div>
       </div>
