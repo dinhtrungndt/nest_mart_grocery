@@ -8,6 +8,8 @@ import our_team1 from '../../assets/image/about/our_team1.png';
 import our_team2 from '../../assets/image/about/our_team2.png';
 import thongke__after from '../../assets/image/about/thongke__after.png';
 import your_partner from '../../assets/image/about/your_partner.png';
+import bando from '../../assets/image/contact/bando.png';
+import drop_us_a_line from '../../assets/image/contact/drop_us_a_line.png';
 import best_prices_offers from '../../assets/image/icon_selling/best_prices_offers.png';
 import easy_return from '../../assets/image/icon_selling/easy_returns.png';
 import free_delivery from '../../assets/image/icon_selling/free_delivery.png';
@@ -59,5 +61,9 @@ export const IMAGES = {
   our_team2: our_team2,
   form_email_footer: form_email_footer,
   banner_13: banner_13,
+
+  // contact
+  bando: bando,
+  drop_us_a_line: drop_us_a_line,
 
 };
