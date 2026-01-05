@@ -3,6 +3,7 @@ import Breadcrumb from '../../components/common/Breadcrumb';
 import Header2 from '../../components/header/Header2';
 import Navbar from '../../components/navbar/Navbar';
 import { IMAGES } from '../../constants/images/image';
+import ContactForm from '../../utils/contactForm';
 import EmailSubscribe from '../../utils/EmailSubscribe';
 
 const Contact = () => {
@@ -59,10 +60,11 @@ const Contact = () => {
       </div>
 
       {/* Google Maps */}
-      <div className="px-4 md:px-12 lg:px-24 py-2">
+      <div className="px-4 md:px-12 lg:px-24 py-8">
         <div className="w-full h-96 md:h-[500px] lg:h-[600px]">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.3254589596544!2d106.66373631533432!3d10.786834192318078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ed23c80767d%3A0x5a981a5efee9726!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBLaG9hIGjhu41jIFThu7Egbmhpw6puIC0gxJBIUUctSENN!5e0!3m2!1svi!2s!4v1641234567890!5m2!1svi!2s"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.4548910231434!2d106.62274111533506!3d10.813575992278532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752be0ed99509d%3A0xd7af013552402456!2zNjIgTMawdSBDaMOtIEhp4bq_dSwgUGjGsOG7nW5nIDE1LCBUw6JuIFBow7osIFRow6BuaCBwaOG7kSBI4buTIENow60gTWluaCwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s"
+            title="Google Maps Location"
             width="100%"
             height="100%"
             style={{ border: 0 }}
@@ -126,58 +128,7 @@ const Contact = () => {
 
       {/* Contact form */}
       <div className="px-4 md:px-12 lg:px-24 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center pb-12">
-          {/* Form */}
-          <div className="flex flex-col space-y-4">
-            <p className="text-primary font-medium text-sm">Contact form</p>
-            <p className="text-black text-2xl md:text-3xl font-bold font-quicksand">Drop Us a Line</p>
-            <p className="text-gray-500 text-sm mb-4">
-              Your email address will not be published. Required fields are marked <span className="text-red-500">*</span>
-            </p>
-
-            <input
-              type="text"
-              placeholder="First Name"
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-            />
-
-            <input
-              type="email"
-              placeholder="Your Email"
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-            />
-
-            <input
-              type="tel"
-              placeholder="Your Phone"
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-            />
-
-            <input
-              type="text"
-              placeholder="Subject"
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-            />
-
-            <textarea
-              placeholder="Your Message"
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-            ></textarea>
-
-            <button className="w-full md:w-auto text-white px-8 py-3 bg-primary rounded-lg hover:bg-primaryDark transition-colors font-medium">
-              Send message
-            </button>
-          </div>
-
-          {/* Image */}
-          <div className="order-first lg:order-last">
-            <img
-              src={IMAGES.drop_us_a_line}
-              alt="Drop Us a Line"
-              className="w-full h-auto rounded-lg shadow-lg"
-            />
-          </div>
-        </div>
+        <ContactForm />
         {/* Form Email Footer */}
         <EmailSubscribe
           backgroundImage={IMAGES.form_email_footer}
