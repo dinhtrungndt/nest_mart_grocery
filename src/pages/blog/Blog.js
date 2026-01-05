@@ -7,6 +7,7 @@ import Header2 from '../../components/header/Header2';
 import Navbar from '../../components/navbar/Navbar';
 import { IMAGES } from '../../constants/images/image';
 import { DataRecipsArticles, DataTrendingBlog } from '../../stores/data/blog';
+import EmailSubscribe from '../../utils/EmailSubscribe';
 
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -255,6 +256,11 @@ const Blog = () => {
             />
           </div>
         </div>
+        {/* Form Email Footer */}
+        <EmailSubscribe
+          backgroundImage={IMAGES.form_email_footer}
+          personImage={IMAGES.banner_13}
+        />
       </div>
     </div>
   );
