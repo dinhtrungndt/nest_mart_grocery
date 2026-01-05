@@ -4,6 +4,7 @@ import Footer from './components/footer/footer';
 import TopBarHeader from './components/topbar/topbar_header';
 import AboutPage from './pages/about/AboutPage';
 import Blog from './pages/blog/Blog';
+import BlogDetail from './pages/blog/BlogDetail';
 import Contact from './pages/contact/Contact';
 import HomePage from './pages/home/HomePage';
 import HomePage2 from './pages/home/HomePage2';
@@ -18,6 +19,7 @@ function App() {
         <Route path="/home-2" element={<HomePage2 />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/detail/:id" element={<BlogDetail />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
