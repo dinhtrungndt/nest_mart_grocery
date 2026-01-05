@@ -24,8 +24,6 @@ const ProductHome = ({
     return matchCategory && matchTag;
   });
 
-
-
   return (
     <div className={className}>
       {/* Product Category */}
