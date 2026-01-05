@@ -1,6 +1,8 @@
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useMemo } from 'react';
+import { IMAGES } from '../../constants/images/image';
 import { DataProducts } from '../../stores/data/products';
+import EmailSubscribe from '../../utils/EmailSubscribe';
 
 const ShopByCategories = ({ setIsPaused, showIconSelling }) => {
 
@@ -183,62 +185,46 @@ const ShopByCategories = ({ setIsPaused, showIconSelling }) => {
       </div>
 
       {/* form section */}
-      <div className="pt-4 relative">
-        <img src={require("../../assets/image/bg-nest-email.png")} alt="" className="w-full h-64 md:h-auto object-cover rounded-2xl" />
-        <img src={require("../../assets/image/person-bg-nest.png")} alt="" className="absolute w-1/2 md:w-1/2 bottom-0 right-0 rounded-br-2xl hidden md:block" />
-        <div className="absolute top-1/2 left-4 md:left-24 transform -translate-y-1/2 md:transform-none md:top-1/4 space-y-2 w-full md:w-auto pr-4 md:pr-0">
-          <p className="text-2xl md:text-4xl font-bold font-quicksand line-clamp-2">Stay home & get your daily <br className="hidden md:block" /> needs from our shop</p>
-          <p className="text-lg md:text-xl font-medium font-quicksand">Start Your Daily Shopping with <span className="text-primary">Nest Mart</span></p>
-          <div className="flex justify-center md:justify-start">
-            <div className="mt-6 border border-gray-300 rounded-full bg-white w-full md:w-96 focus:outline-none focus:ring-2 focus:ring-primary flex justify-between">
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="px-4 py-3 focus:outline-none rounded-full w-full text-sm text-gray-700"
-                onFocus={() => setIsPaused(true)}
-                onBlur={() => setIsPaused(false)}
-              />
-              <button className="bg-primary text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-primaryDark transition-colors">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <EmailSubscribe
+        backgroundImage={require("../../assets/image/bg-nest-email.png")}
+        personImage={require("../../assets/image/person-bg-nest.png")}
+        onFocus={() => setIsPaused(true)}
+        onBlur={() => setIsPaused(false)}
+      />
 
       {/* icon section selling */}
       {showIconSelling && (
         <div className="grid grid-cols-1 md:grid-cols-3 lg:flex lg:justify-between gap-4 pt-8 md:pb-24">
           <div className="flex items-center space-x-2 bg-gray-100 px-6 py-2 rounded-md shadow-md cursor-pointer hover:scale-105 transition-all hover:shadow-lg">
-            <img src={require("../../assets/image/icon_selling/best_prices_offers.png")} alt="" className="w-12" />
+            <img src={IMAGES.best_prices_offers} alt="" className="w-12" />
             <div className="space-y-1">
               <p className="font-medium text-sm">Best Prices & Offers</p>
               <p className="text-xs text-gray-400">Orders $50 or more</p>
             </div>
           </div>
           <div className="flex items-center space-x-2 bg-gray-100 px-6 py-2 rounded-md shadow-md cursor-pointer hover:scale-105 transition-all hover:shadow-lg">
-            <img src={require("../../assets/image/icon_selling/free_delivery.png")} alt="" className="w-12" />
+            <img src={IMAGES.free_delivery} alt="" className="w-12" />
             <div className="space-y-1">
               <p className="font-medium text-sm">Free Delivery</p>
               <p className="text-xs text-gray-400">24/7 amazing services</p>
             </div>
           </div>
           <div className="flex items-center space-x-2 bg-gray-100 px-6 py-2 rounded-md shadow-md cursor-pointer hover:scale-105 transition-all hover:shadow-lg">
-            <img src={require("../../assets/image/icon_selling/great_daily_deal.png")} alt="" className="w-12" />
+            <img src={IMAGES.great_daily_deal} alt="" className="w-12" />
             <div className="space-y-1">
               <p className="font-medium text-sm">Great Daily Deals</p>
               <p className="text-xs text-gray-400">When you sign up</p>
             </div>
           </div>
           <div className="flex items-center space-x-2 bg-gray-100 px-6 py-2 rounded-md shadow-md cursor-pointer hover:scale-105 transition-all hover:shadow-lg">
-            <img src={require("../../assets/image/icon_selling/wide_assortment.png")} alt="" className="w-12" />
+            <img src={IMAGES.wide_assortment} alt="" className="w-12" />
             <div className="space-y-1">
               <p className="font-medium text-sm">Wide Assortment</p>
               <p className="text-xs text-gray-400">Mega Discounts</p>
             </div>
           </div>
           <div className="flex items-center space-x-2 bg-gray-100 px-8 py-2 rounded-md shadow-md cursor-pointer hover:scale-105 transition-all hover:shadow-lg">
-            <img src={require("../../assets/image/icon_selling/easy_returns.png")} alt="" className="w-12" />
+            <img src={IMAGES.easy_return} alt="" className="w-12" />
             <div className="space-y-1">
               <p className="font-medium text-sm">Easy Returns</p>
               <p className="text-xs text-gray-400">Within 30 days</p>
