@@ -11,6 +11,7 @@ import ShopNow from '../../components/products/shopNow';
 import { IMAGES } from '../../constants/images/image';
 import { DataProducts } from '../../stores/data/products';
 
+
 const HomePage2 = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(true);
