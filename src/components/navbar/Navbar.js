@@ -100,14 +100,13 @@ const Navbar = () => {
               </div>
               <div className={`overflow-hidden transition-all duration-300 ${expandedMobileMenu === 'shop' ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'}`}>
                 <div className="bg-gray-50 px-8 py-2 space-y-2 flex flex-col">
-                  <NavLink to="/shop" className="text-gray-600 hover:text-primary py-1">Shop Grid</NavLink>
+                  <NavLink to="/shop-snack" className="text-gray-600 hover:text-primary py-1">Shop Snack</NavLink>
                   <NavLink to="/shop-list" className="text-gray-600 hover:text-primary py-1">Shop List</NavLink>
                   <NavLink to="/shop-details" className="text-gray-600 hover:text-primary py-1">Shop Details</NavLink>
                   <NavLink to="/shop-filter" className="text-gray-600 hover:text-primary py-1">Shop Filter</NavLink>
                 </div>
               </div>
             </div>
-            {/* Mega Menu */}
             {/* Mega Menu */}
             <div className="flex flex-col">
               <div className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 transition-colors group">
@@ -133,7 +132,6 @@ const Navbar = () => {
                 </div>
               </div>
             </div>
-            {/* Vendors */}
             {/* Vendors */}
             <div className="flex flex-col">
               <div className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 transition-colors group">
@@ -246,7 +244,7 @@ const Navbar = () => {
             )}
           </NavLink>
           {renderDropdownLinks([
-            { label: 'Shop Grid', to: '/shop' },
+            { label: 'Shop Snack', to: '/shop-snack' },
             { label: 'Shop List', to: '/shop-list' },
             { label: 'Shop Details', to: '/shop-details' },
             { label: 'Shop Filter', to: '/shop-filter' },

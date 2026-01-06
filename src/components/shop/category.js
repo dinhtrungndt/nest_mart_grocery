@@ -1,9 +1,9 @@
-import { DataProducts } from '../../stores/data/products';
+import { DataShopSnack } from '../../stores/data/shop';
 
-const Category = ({ selectedCategory, onSelectCategory }) => {
+const CategoryShop = ({ selectedCategory, onSelectCategory }) => {
   const categoryMap = new Map();
 
-  DataProducts.forEach(item => {
+  DataShopSnack.forEach(item => {
     if (!categoryMap.has(item.category)) {
       categoryMap.set(item.category, {
         category: item.category,
@@ -30,7 +30,7 @@ const Category = ({ selectedCategory, onSelectCategory }) => {
       <p className="text-lg font-bold font-quicksand">Category</p>
       <span className="block h-0.5 w-10 bg-primary mt-2 mb-4"></span>
 
-      {/* All Products Option */}
+      {/* All Categories Option */}
       <div
         className={`flex items-center justify-between mb-4 cursor-pointer border-gray-300 p-2 rounded-lg group hover:bg-primary hover:text-white transition-colors ${selectedCategory === 'All' ? 'bg-primary text-white' : ''
           }`}
@@ -43,7 +43,7 @@ const Category = ({ selectedCategory, onSelectCategory }) => {
           ? 'bg-white text-primary'
           : 'bg-primary text-white group-hover:bg-white group-hover:text-primary'
           }`}>
-          {DataProducts.length}
+          {DataShopSnack.length}
         </p>
       </div>
 
@@ -71,4 +71,4 @@ const Category = ({ selectedCategory, onSelectCategory }) => {
   );
 };
 
-export default Category;
+export default CategoryShop;

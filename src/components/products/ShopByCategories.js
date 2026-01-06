@@ -186,8 +186,8 @@ const ShopByCategories = ({ setIsPaused, showIconSelling }) => {
 
       {/* form section */}
       <EmailSubscribe
-        backgroundImage={require("../../assets/image/bg-nest-email.png")}
-        personImage={require("../../assets/image/person-bg-nest.png")}
+        backgroundImage={IMAGES.person_email}
+        personImage={IMAGES.personImage}
         onFocus={() => setIsPaused(true)}
         onBlur={() => setIsPaused(false)}
       />

@@ -8,6 +8,7 @@ import our_team1 from '../../assets/image/about/our_team1.png';
 import our_team2 from '../../assets/image/about/our_team2.png';
 import thongke__after from '../../assets/image/about/thongke__after.png';
 import your_partner from '../../assets/image/about/your_partner.png';
+import person_email from "../../assets/image/bg-nest-email.png";
 import almond_butter from '../../assets/image/blog/almond_butter.png';
 import baked_mozzarella from '../../assets/image/blog/baked_mozzarella.png';
 import caprese_chicken from '../../assets/image/blog/caprese_chicken.png';
@@ -44,6 +45,7 @@ import great_daily from '../../assets/image/icon_selling/great_daily.png';
 import great_daily_deal from '../../assets/image/icon_selling/great_daily_deal.png';
 import wide_assortment from '../../assets/image/icon_selling/wide_assortment.png';
 import logoNest from '../../assets/image/logo_nest.png';
+import personImage from "../../assets/image/person-bg-nest.png";
 import shop_now_1 from '../../assets/image/products/shop_now_1.png';
 import shop_now_2 from '../../assets/image/products/shop_now_2.png';
 import shop_now_3 from '../../assets/image/products/shop_now_3.png';
@@ -54,6 +56,7 @@ import dealsOfTheDay4 from '../../assets/image/products/sp_deals_4.png';
 import slide from '../../assets/image/slide.png';
 import slide1 from '../../assets/image/slide1.png';
 import slide2 from '../../assets/image/slide2.png';
+
 
 // Export object chứa tất cả ảnh
 export const IMAGES = {
@@ -124,4 +127,7 @@ export const IMAGES = {
   bando: bando,
   drop_us_a_line: drop_us_a_line,
 
+  // other images can be added here
+  person_email: person_email,
+  personImage: personImage
 };
