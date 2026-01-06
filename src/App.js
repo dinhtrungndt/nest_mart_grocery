@@ -8,6 +8,7 @@ import BlogDetail from './pages/blog/BlogDetail';
 import Contact from './pages/contact/Contact';
 import HomePage from './pages/home/HomePage';
 import HomePage2 from './pages/home/HomePage2';
+import ShopProductDetail from './pages/shop/ShopProductDetail';
 import ShopSnack from './pages/shop/ShopSnack';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/home-2" element={<HomePage2 />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/shop-snack" element={<ShopSnack />} />
+        <Route path="/shop/product/:id" element={<ShopProductDetail />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/detail/:id" element={<BlogDetail />} />
         <Route path="/contact" element={<Contact />} />
