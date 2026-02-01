@@ -1,5 +1,5 @@
 import { Send } from 'lucide-react';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header2 from '../../components/header/Header2';
 import Navbar from '../../components/navbar/Navbar';
 import Category from '../../components/products/category';
@@ -9,35 +9,13 @@ import ProductTags from '../../components/products/product_tags';
 import ShopByCategories from '../../components/products/ShopByCategories';
 import ShopNow from '../../components/products/shopNow';
 import { IMAGES } from '../../constants/images/image';
-import { DataProducts } from '../../stores/data/products';
 
 
 const HomePage2 = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedTag, setSelectedTag] = useState(null);
-
-  const topSelling = useMemo(
-    () => DataProducts.sort((a, b) => b.selling - a.selling).slice(0, 3),
-    []
-  );
-
-  const trendingProducts = useMemo(
-    () => DataProducts.filter(p => p.isTrending).slice(0, 3),
-    []
-  );
-
-  const recentlyAdded = useMemo(
-    () => DataProducts.filter(p => p.isRecently).slice(0, 3),
-    []
-  );
-
-  const topRatedProducts = useMemo(
-    () => DataProducts.filter(p => p.isTopRated).slice(0, 3),
-    []
-  );
 
   const slides = [
     { id: 1, image: IMAGES.slide, title: "Fresh Vegetables", subtitle: "Big discount" },
@@ -57,20 +35,13 @@ const HomePage2 = () => {
   }, [currentSlide, isPaused]);
 
   const handleNext = () => {
-    setIsTransitioning(true);
     setCurrentSlide((prev) => prev + 1);
-  };
-
-  const goToSlide = (index) => {
-    setIsTransitioning(true);
-    setCurrentSlide(index);
   };
 
   // Reset to first slide when reaching the duplicate
   useEffect(() => {
     if (currentSlide === slides.length) {
       setTimeout(() => {
-        setIsTransitioning(false);
         setCurrentSlide(0);
       }, 700);
     }
